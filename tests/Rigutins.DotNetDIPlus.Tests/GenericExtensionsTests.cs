@@ -1,8 +1,5 @@
 namespace Rigutins.DotNetDIPlus.Tests;
 
-file interface IService { }
-file class Service : IService { }
-
 public class GenericExtensionsTests
 {
     [Theory]
@@ -42,4 +39,7 @@ public class GenericExtensionsTests
         Assert.Equal(typeof(Service), descriptor.ImplementationType);
         Assert.Equal(lifetime, descriptor.Lifetime);
     }
+
+    private interface IService { }
+    private class Service : IService { }
 }
