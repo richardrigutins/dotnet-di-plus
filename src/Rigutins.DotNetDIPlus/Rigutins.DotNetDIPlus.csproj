@@ -4,10 +4,23 @@
     <TargetFrameworks>netstandard2.0;net6.0;net7.0</TargetFrameworks>
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
+    <Authors>richardrigutins</Authors>
+    <PackageId>Rigutins.DotNetDIPlus</PackageId>
+    <Description>Provides advanced patterns for the .NET dependency injection, such as decorators, composite services, and more.</Description>
+    <PackageProjectUrl>https://github.com/richardrigutins/dotnet-di-plus</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/richardrigutins/dotnet-di-plus</RepositoryUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>di;dependency injection</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../../README.md" Pack="true" PackagePath="/" />
+    <None Include="../../LICENSE" Pack="true" PackagePath="/" />
   </ItemGroup>
 
 </Project>
