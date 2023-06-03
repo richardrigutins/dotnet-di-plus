@@ -6,7 +6,7 @@
     <LangVersion>latest</LangVersion>
     <Authors>richardrigutins</Authors>
     <PackageId>Rigutins.DotNetDIPlus</PackageId>
-    <Description>Provides advanced patterns for the .NET dependency injection, such as decorators, composite services, and more.</Description>
+    <Description>Provides advanced patterns for the .NET dependency injection, such as decorators, composite services, service forwarding, and more.</Description>
     <PackageProjectUrl>https://github.com/richardrigutins/dotnet-di-plus</PackageProjectUrl>
     <RepositoryUrl>https://github.com/richardrigutins/dotnet-di-plus</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

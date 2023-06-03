@@ -1,6 +1,8 @@
 # DotNetDIPlus
 
-`DotNetDIPlus` is a library that provides advanced patterns for the .NET dependency injection. It extends the built-in .NET Core dependency injection container with additional features and patterns that can make it easier to work with dependency injection in complex applications.
+`DotNetDIPlus` is a library that provides advanced patterns for the .NET dependency injection, extending the built-in .NET dependency injection container with additional features and patterns that can make it easier to work with dependency injection in complex use cases.
+
+> **Note:** This library is not a dependency injection container. It is a library that extends the built-in .NET dependency injection container with additional features and patterns.
 
 ## Features
 
@@ -8,6 +10,16 @@
 - **Decorator pattern**: Register decorators for services (for services that use the decorator pattern).
 - **Composite pattern**: Register a composite service that combines multiple services (for services that use the composite pattern).
 - **Other methods**: Register services by specifying a service lifetime.
+
+## Installation
+
+To use this library, add the `Rigutins.DotNetDIPlus` NuGet package to your project.
+
+The library is currently available for:
+- .NET Standard 2.0
+- .NET Standard 2.1
+- .NET 6.0
+- .NET 7.0
 
 ## Usage
 
@@ -71,13 +83,13 @@ To use the decorator pattern with the .NET dependency injection container, first
 // Register the original service implementation.
 services.AddSingleton<IService, MyService>();
 
-// Register the decorator service, which will decorate the original service implementation.
+// Register the decorator service, to decorate the original service implementation.
 services.Decorate<IService, DecoratorService>();
 ```
 
 This registers `DecoratorService` as a singleton service that decorates `MyService`. The decorator service will use the same lifetime as the service it decorates. 
 
-Each time `IService` is injected, an instance of `DecoratorService` will be provided, which will in turn contain an instance of `MyService`.
+Each time `IService` is injected, an instance of `DecoratorService` will be provided, which will, in turn, contain an instance of `MyService`.
 
 The same can be done for scoped and transient services.
 
@@ -155,16 +167,8 @@ services.Add<IService, MyService>(ServiceLifetime.Singleton);
 
 The same can be done for scoped and transient lifetimes.
 
-## Installation
-
-To use this library, add the `Rigutins.DotNetDIPlus` NuGet package to your project.
-
-The library is currently available for:
-- .NET Standard 2.0
-- .NET Standard 2.1
-- .NET 6.0
-- .NET 7.0
-
 ## Contributing
 
-Contributions are welcome! Feel free to open an issue or submit a pull request.
+Contributions are welcome!
+
+This library is being developed in my free time, to share some implementations that I've found useful when working with some more complex use cases in dependency injection in .NET. As such, it has not been tested under all possible scenarios, so if you find any issues or have any suggestions, feel free to open an issue or submit a pull request.
