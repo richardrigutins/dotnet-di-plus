@@ -1,4 +1,4 @@
-name: Build and Test
+name: Build and Push Package
 
 on:
   push:
@@ -14,11 +14,22 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Checkout all history for GitVersion to be able to calculate the version
 
-      - name: Setup .NET Core
+      - name: Setup .NET
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '7.0.x'
+
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v0
+        with:
+          versionSpec: '5.5.0'
+
+      - name: Determine Version
+        id: gitversion # id to later be referenced
+        uses: gittools/actions/gitversion/execute@v0
 
       - name: Restore dependencies
         run: dotnet restore
@@ -28,3 +39,36 @@ jobs:
 
       - name: Test
         run: dotnet test --configuration Release --no-build
+
+      - name: Pack
+        run: dotnet pack --configuration Release /p:Version=${{ steps.gitversion.outputs.nuGetVersionV2 }}
+
+      - name: Upload package
+        uses: actions/upload-artifact@v2
+        with:
+          name: nuget-package
+          path: '**/*.nupkg'
+
+  publish:
+    name: Publish Package
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    steps:
+      - name: Download package
+        uses: actions/download-artifact@v2
+        with:
+          name: nuget-package
+          path: ./packages
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '7.0.x'
+
+      - name: Authenticate with GitHub Packages
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | nuget sources add -name "github" -source https://nuget.pkg.github.com/$GITHUB_REPOSITORY_OWNER/index.json -username ${{ github.actor }} -password-stdin
+
+      - name: Publish package
+        run: dotnet nuget push "**/*.nupkg" --source "github"
