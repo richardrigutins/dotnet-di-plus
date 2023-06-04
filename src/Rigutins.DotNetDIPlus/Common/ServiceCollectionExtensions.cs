@@ -44,7 +44,7 @@ internal static class ServiceCollectionExtensions
 	/// <param name="descriptors">An <see cref="ICollection{T}"/> of <see cref="ServiceDescriptor"/> that contains the service descriptors for the specified service type.</param>
 	/// <returns>
 	/// <c>true</c> if the service type is registered; otherwise, <c>false</c>.
-
+	/// </returns>
 	internal static bool TryGetServiceDescriptors(this IServiceCollection services, Type serviceType, out ICollection<ServiceDescriptor> descriptors)
 	{
 		descriptors = services.Where(service => service.ServiceType == serviceType).ToList();

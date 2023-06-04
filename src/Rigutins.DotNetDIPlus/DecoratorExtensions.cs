@@ -12,9 +12,9 @@ public static class DecoratorExtensions
 {
 	/// <summary>
 	/// Adds a service of the type specified in <typeparamref name="TService"/> 
-	/// to the specified <typeparamref name="IServiceCollection"/>,
+	/// to the specified <see cref="IServiceCollection"/>,
 	/// decorating all registered services of type <typeparamref name="TService"/>
-	/// with the specified <typeparamref name="TImplementation"/>.
+	/// with the specified <typeparamref name="TDecorator"/>.
 	/// </summary>
 	/// <typeparam name="TService">The type of service to decorate.</typeparam>
 	/// <typeparam name="TDecorator">The type of decorator to apply.</typeparam>

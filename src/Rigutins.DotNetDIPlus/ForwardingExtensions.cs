@@ -9,7 +9,7 @@ public static class ForwardingExtensions
 {
 	/// <summary>
 	/// Adds a singleton service of the type specified in <typeparamref name="TImplementation"/>
-	/// to the specified <typeparamref name="IServiceCollection"/>.
+	/// to the specified <see cref="IServiceCollection"/>.
 	/// The service will be registered as both <typeparamref name="TService1"/> and <typeparamref name="TService2"/>.
 	/// </summary>
 	/// <typeparam name="TService1">The first type of service to add.</typeparam>
@@ -38,7 +38,7 @@ public static class ForwardingExtensions
 
 	/// <summary>
 	/// Adds a scoped service of the type specified in <typeparamref name="TImplementation"/>
-	/// to the specified <typeparamref name="IServiceCollection"/>.
+	/// to the specified <see cref="IServiceCollection"/>.
 	/// The service will be registered as both <typeparamref name="TService1"/> and <typeparamref name="TService2"/>.
 	/// </summary>
 	/// <typeparam name="TService1">The first type of service to add.</typeparam>
@@ -67,7 +67,7 @@ public static class ForwardingExtensions
 
 	/// <summary>
 	/// Adds a transient service of the type specified in <typeparamref name="TImplementation"/>
-	/// to the specified <typeparamref name="IServiceCollection"/>.
+	/// to the specified <see cref="IServiceCollection"/>.
 	/// The service will be registered as both <typeparamref name="TService1"/> and <typeparamref name="TService2"/>.
 	/// </summary>
 	/// <typeparam name="TService1">The first type of service to add.</typeparam>
