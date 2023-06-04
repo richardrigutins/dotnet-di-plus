@@ -11,17 +11,16 @@ namespace Microsoft.Extensions.DependencyInjection;
 public static class DecoratorExtensions
 {
 	/// <summary>
-	/// Adds a service of the type specified in <typeparamref name="TService"/> 
-	/// to the specified <see cref="IServiceCollection"/>,
-	/// decorating all registered services of type <typeparamref name="TService"/>
-	/// with the specified <typeparamref name="TDecorator"/>.
+	/// Adds a service of type <typeparamref name="TService"/> to the service collection,
+	/// decorating all the existing services registered for type <typeparamref name="TService"/>
+	/// with an implementation of type <typeparamref name="TDecorator"/>.
 	/// </summary>
 	/// <typeparam name="TService">The type of service to decorate.</typeparam>
 	/// <typeparam name="TDecorator">The type of decorator to apply.</typeparam>
-	/// <param name="services">The <see cref="IServiceCollection"/> to decorate. It must not be null.</param>
-	/// <returns>The modified <see cref="IServiceCollection"/>.</returns>
-	/// <exception cref="ArgumentNullException">Thrown when <paramref name="services"/> is null.</exception>
-	/// <exception cref="InvalidOperationException">Thrown when no service of type <typeparamref name="TService"/> has been registered.</exception>
+	/// <param name="services">The service collection to add the service to. It must not be null.</param>
+	/// <returns>A reference to this <see cref="IServiceCollection"/> instance after the operation has completed.</returns>
+	/// <exception cref="ArgumentNullException">When <paramref name="services"/> is null.</exception>
+	/// <exception cref="InvalidOperationException">When no service of type <typeparamref name="TService"/> has been registered.</exception>
 	public static IServiceCollection Decorate<TService, TDecorator>(this IServiceCollection services)
 		where TService : class
 		where TDecorator : class, TService

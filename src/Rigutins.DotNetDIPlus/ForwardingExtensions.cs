@@ -3,21 +3,22 @@
 namespace Microsoft.Extensions.DependencyInjection;
 
 /// <summary>
-/// Provides extension methods for using service forwarding with dependency injection.
+/// Provides extension methods for the <see cref="IServiceCollection"/> interface 
+/// that allow the use of service forwarding.
 /// </summary>
 public static class ForwardingExtensions
 {
 	/// <summary>
-	/// Adds a singleton service of the type specified in <typeparamref name="TImplementation"/>
-	/// to the specified <see cref="IServiceCollection"/>.
-	/// The service will be registered as both <typeparamref name="TService1"/> and <typeparamref name="TService2"/>.
+	/// Adds a singleton service with the implementation type <typeparamref name="TImplementation"/>
+	/// to the service collection.
+	/// The service is added as both the type <typeparamref name="TService1"/> and <typeparamref name="TService2"/>.
 	/// </summary>
-	/// <typeparam name="TService1">The first type of service to add.</typeparam>
-	/// <typeparam name="TService2">The second type of service to add.</typeparam>
+	/// <typeparam name="TService1">The first type of the service to add.</typeparam>
+	/// <typeparam name="TService2">The second type of the service to add.</typeparam>
 	/// <typeparam name="TImplementation">The implementation type of the service.</typeparam>
-	/// <param name="services">The <see cref="IServiceCollection"/> to add the service to. It must not be null.</param>
-	/// <returns>The modified <see cref="IServiceCollection"/>.</returns>
-	/// <exception cref="ArgumentNullException">Thrown when <paramref name="services"/> is null.</exception>
+	/// <param name="services">The service collection to add the service to. It must not be null.</param>
+	/// <returns>A reference to this <see cref="IServiceCollection"/> instance after the operation has completed.</returns>
+	/// <exception cref="ArgumentNullException">When <paramref name="services"/> is null.</exception>
 	public static IServiceCollection AddSingleton<TService1, TService2, TImplementation>(this IServiceCollection services)
 		where TService1 : class
 		where TService2 : class
@@ -37,16 +38,16 @@ public static class ForwardingExtensions
 	}
 
 	/// <summary>
-	/// Adds a scoped service of the type specified in <typeparamref name="TImplementation"/>
-	/// to the specified <see cref="IServiceCollection"/>.
-	/// The service will be registered as both <typeparamref name="TService1"/> and <typeparamref name="TService2"/>.
+	/// Adds a scoped service with the implementation type <typeparamref name="TImplementation"/>
+	/// to the service collection.
+	/// The service is added as both the type <typeparamref name="TService1"/> and <typeparamref name="TService2"/>.
 	/// </summary>
-	/// <typeparam name="TService1">The first type of service to add.</typeparam>
-	/// <typeparam name="TService2">The second type of service to add.</typeparam>
+	/// <typeparam name="TService1">The first type of the service to add.</typeparam>
+	/// <typeparam name="TService2">The second type of the service to add.</typeparam>
 	/// <typeparam name="TImplementation">The implementation type of the service.</typeparam>
-	/// <param name="services">The <see cref="IServiceCollection"/> to add the service to. It must not be null.</param>
-	/// <returns>The modified <see cref="IServiceCollection"/>.</returns>
-	/// <exception cref="ArgumentNullException">Thrown when <paramref name="services"/> is null.</exception>
+	/// <param name="services">The service collection to add the service to. It must not be null.</param>
+	/// <returns>A reference to this <see cref="IServiceCollection"/> instance after the operation has completed.</returns>
+	/// <exception cref="ArgumentNullException">When <paramref name="services"/> is null.</exception>
 	public static IServiceCollection AddScoped<TService1, TService2, TImplementation>(this IServiceCollection services)
 		where TService1 : class
 		where TService2 : class
@@ -66,16 +67,16 @@ public static class ForwardingExtensions
 	}
 
 	/// <summary>
-	/// Adds a transient service of the type specified in <typeparamref name="TImplementation"/>
-	/// to the specified <see cref="IServiceCollection"/>.
-	/// The service will be registered as both <typeparamref name="TService1"/> and <typeparamref name="TService2"/>.
+	/// Adds a transient service with the implementation type <typeparamref name="TImplementation"/>
+	/// to the service collection.
+	/// The service is added as both the type <typeparamref name="TService1"/> and <typeparamref name="TService2"/>.
 	/// </summary>
-	/// <typeparam name="TService1">The first type of service to add.</typeparam>
-	/// <typeparam name="TService2">The second type of service to add.</typeparam>
+	/// <typeparam name="TService1">The first type of the service to add.</typeparam>
+	/// <typeparam name="TService2">The second type of the service to add.</typeparam>
 	/// <typeparam name="TImplementation">The implementation type of the service.</typeparam>
-	/// <param name="services">The <see cref="IServiceCollection"/> to add the service to. It must not be null.</param>
-	/// <returns>The modified <see cref="IServiceCollection"/>.</returns>
-	/// <exception cref="ArgumentNullException">Thrown when <paramref name="services"/> is null.</exception>
+	/// <param name="services">The service collection to add the service to. It must not be null.</param>
+	/// <returns>A reference to this <see cref="IServiceCollection"/> instance after the operation has completed.</returns>
+	/// <exception cref="ArgumentNullException">When <paramref name="services"/> is null.</exception>
 	public static IServiceCollection AddTransient<TService1, TService2, TImplementation>(this IServiceCollection services)
 		where TService1 : class
 		where TService2 : class

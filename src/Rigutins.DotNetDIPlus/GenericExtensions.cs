@@ -10,11 +10,11 @@ public static class GenericExtensions
 	/// <summary>
 	/// Adds a service of type <typeparamref name="TService"/> to the service collection with the specified lifetime.
 	/// </summary>
-	/// <typeparam name="TService">The type of the service.</typeparam>
-	/// <param name="services">The service collection. It must not be null.</param>
+	/// <typeparam name="TService">The type of the service to add.</typeparam>
+	/// <param name="services">The service collection to add the service to. It must not be null.</param>
 	/// <param name="serviceLifetime">The lifetime of the service.</param>
-	/// <returns>The service collection.</returns>
-	/// <exception cref="ArgumentNullException"><paramref name="services"/> is null.</exception>
+	/// <returns>A reference to this <see cref="IServiceCollection"/> instance after the operation has completed.</returns>
+	/// <exception cref="ArgumentNullException">When <paramref name="services"/> is null.</exception>
 	public static IServiceCollection Add<TService>(this IServiceCollection services, ServiceLifetime serviceLifetime)
 		where TService : class
 	{
@@ -30,14 +30,15 @@ public static class GenericExtensions
 	}
 
 	/// <summary>
-	/// Adds a service of type <typeparamref name="TService"/> with an implementation of type <typeparamref name="TImplementation"/> to the service collection with the specified lifetime.
+	/// Adds a service of type <typeparamref name="TService"/> with an implementation of type <typeparamref name="TImplementation"/> 
+	/// to the service collection with the specified lifetime.
 	/// </summary>
-	/// <typeparam name="TService">The type of the service.</typeparam>
-	/// <typeparam name="TImplementation">The type of the implementation.</typeparam>
-	/// <param name="services">The service collection. It must not be null.</param>
+	/// <typeparam name="TService">The type of the service to add.</typeparam>
+	/// <typeparam name="TImplementation">The type of the implementation to use.</typeparam>
+	/// <param name="services">The service collection to add the service to. It must not be null.</param>
 	/// <param name="serviceLifetime">The lifetime of the service.</param>
-	/// <returns>The service collection.</returns>
-	/// <exception cref="ArgumentNullException"><paramref name="services"/> is null.</exception>
+	/// <returns>A reference to this <see cref="IServiceCollection"/> instance after the operation has completed.</returns>
+	/// <exception cref="ArgumentNullException">When <paramref name="services"/> is null.</exception>
 	public static IServiceCollection Add<TService, TImplementation>(this IServiceCollection services, ServiceLifetime serviceLifetime)
 		where TService : class
 		where TImplementation : class, TService

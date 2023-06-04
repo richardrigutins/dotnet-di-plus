@@ -12,18 +12,18 @@ public static class CompositeExtensions
 {
 	/// <summary>
 	/// Adds a service of the type specified in <typeparamref name="TService"/> 
-	/// with a composite implementation type specified in <typeparamref name="TImplementation"/> 
-	/// to the specified <see cref="IServiceCollection"/>,
-	/// composing all the existing types registered for <typeparamref name="TService"/>
-	/// and using them as a dependency for <typeparamref name="TImplementation"/>;
-	/// the scope of <typeparamref name="TService"/> is determined from the most specific scope of those types
+	/// with an implementation of thpe <typeparamref name="TImplementation"/> 
+	/// to the service collection,
+	/// composing all the existing services registered for type <typeparamref name="TService"/>
+	/// and using them as a dependency for <typeparamref name="TImplementation"/>.
+	/// The scope of <typeparamref name="TService"/> is determined from the most specific scope of the existing services.
 	/// </summary>
 	/// <typeparam name="TService">The type of the service to add.</typeparam>
 	/// <typeparam name="TImplementation">The type of the implementation to use.</typeparam>
-	/// <param name="services">The <see cref="IServiceCollection"/> to add the service to. It must not be null.</param>
-	/// <returns>The modified <see cref="IServiceCollection"/>.</returns>
-	/// <exception cref="InvalidOperationException"></exception>
-	/// <exception cref="ArgumentNullException">Thrown when <paramref name="services"/> is null.</exception>
+	/// <param name="services">The service collection to add the service to. It must not be null.</param>
+	/// <returns>A reference to this <see cref="IServiceCollection"/> instance after the operation has completed.</returns>
+	/// <exception cref="ArgumentNullException">When <paramref name="services"/> is null.</exception>
+	/// <exception cref="InvalidOperationException">When no service of type <typeparamref name="TService"/> has been registered.</exception>
 	public static IServiceCollection Compose<TService, TImplementation>(this IServiceCollection services)
 		where TService : class
 		where TImplementation : class, TService
