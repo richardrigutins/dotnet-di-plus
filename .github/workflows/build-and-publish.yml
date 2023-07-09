@@ -50,7 +50,7 @@ jobs:
         run: dotnet pack --configuration Release /p:Version=${{ steps.gitversion.outputs.nuGetVersionV2 }}
 
       - name: Upload package
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: nuget-package
           path: '**/*.nupkg'
