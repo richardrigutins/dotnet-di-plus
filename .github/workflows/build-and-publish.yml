@@ -7,10 +7,13 @@ on:
       - release/*
     paths-ignore:
       - '**.yml'
+      - 'CODEOWNERS'
   pull_request:
     branches:
       - main
       - release/*
+    paths-ignore:
+      - 'CODEOWNERS'
 
 jobs:
   build-and-test:
