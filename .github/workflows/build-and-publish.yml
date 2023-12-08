@@ -8,12 +8,16 @@ on:
     paths-ignore:
       - '**.yml'
       - 'CODEOWNERS'
+      - 'README.md'
+      - '.gitignore'
   pull_request:
     branches:
       - main
       - release/*
     paths-ignore:
       - 'CODEOWNERS'
+      - 'README.md'
+      - '.gitignore'
 
 jobs:
   build-and-test:
