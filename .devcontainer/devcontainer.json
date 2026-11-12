@@ -8,11 +8,12 @@
     "customizations": {
         "vscode": {
             "extensions": [
-				"ms-dotnettools.vscode-dotnet-runtime",
-				"ms-dotnettools.csdevkit",
-				"ms-dotnetools.csharp",
-				"richardrigutins.csharp-shortcuts"
-			]
+                "ms-dotnettools.vscode-dotnet-runtime",
+                "ms-dotnettools.csdevkit",
+                "ms-dotnetools.csharp",
+                "richardrigutins.csharp-shortcuts",
+                "GitHub.vscode-github-actions"
+            ]
         }
     },
     "remoteEnv": {
